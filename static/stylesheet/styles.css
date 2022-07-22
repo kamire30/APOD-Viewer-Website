@@ -1,0 +1,119 @@
+/* Fonts */
+
+@font-face {
+    font-family: AltaLight;
+    src: url(/static/fonts/alta-light.otf);
+}
+@font-face {
+    font-family: Archive;
+    src: url(/static/fonts/Archive.otf)
+}
+
+/* Main Styling */
+
+body {
+    background-image: url(/static/imgs/red-gradient.gif);
+    background-repeat: no-repeat;
+    overflow: hidden;
+    margin: 0;
+}
+
+ul {
+    display:inline-block;
+    width: 100vw;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(154, 82, 82);
+}
+
+li {
+    display: inline;
+    float: left;
+    color: white;
+    cursor: pointer;
+}
+
+li a {
+    display: inline-block;
+    font-family: AltaLight;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 16px;
+    transition-duration: 0.5s;
+}
+
+li a:visited {
+    color: white;
+}
+
+li a:hover {
+    background-color: rgb(206, 159, 159)
+}
+
+/* Top Page */
+#top-page {
+    display: grid;
+    grid-template-rows: 20vh;
+    grid-template-columns: 25vw 50vw 25vw;
+}
+.apod-info {
+    font-family: AltaLight;
+    color: white;
+}
+
+#top-apod-info {
+    display: grid;
+    height: 10vw;
+    grid-template-rows: 1fr 1fr;
+}
+#top-apod-info div {
+    display: flex;
+    align-items: center;
+}
+
+#photographer {
+    font-size: 1.3vw;
+}
+#camera-icon {
+    max-width: 2.5vw;
+    margin: 1vw 1vw 1vw 1vw;
+    float: left;
+}
+
+#info-click {
+    position: relative;
+    bottom: 1.5vw;
+}
+#info-click h3 {
+    font-size: 1.3vw;
+}
+#info-click:hover {
+    cursor: pointer;
+}
+
+#info-icon {
+    max-width: 3.5vw;
+    margin: 0.5vw 0.5vw 0.5vw 0.5vw;
+    float: left;
+}
+
+#title {
+    text-align: center;
+}
+#title h2 {
+    color: white;
+}
+
+#sources h5 {
+    float: right;
+    margin-right: 1.5vw;
+    margin-top: 0.5vw;
+}
+
+/* Middle Page */
+
+
+/* Bottom Page */
+
