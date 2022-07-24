@@ -102,8 +102,10 @@ li a:hover {
 #title {
     text-align: center;
 }
-#title h2 {
+#title-text {
     color: white;
+    font-family: Archive;
+    font-size: 2em;
 }
 
 #sources h5 {
