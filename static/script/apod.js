@@ -2,18 +2,19 @@ function fetch_images(yesterday, today, tomorrow) {
     fetch(`/.netlify/functions/fetch_images?start_date=${yesterday}&today_date=${today}&tomorrow_date=${tomorrow}`)
         .then(res => res.json())
         .then(data => {
-            document.getElementById("title-text").innerHTML = data[0]["title"];
+            document.getElementById("title-text").innerHTML = data[1]["title"];
+            
         })
 }
 
 const today = new Date();
-const yesterday = new Date(today);
+const yesterday = new Date(today - 1);
 const months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
 var today_day = String(today.getDate());
 var today_month = String(months[today.getMonth()]);
 var today_year = String(today.getFullYear());
 var yesterday_day = String(yesterday.getDate());
-var yesterday_month = String(yesterday.getMonth());
+var yesterday_month = String(months[yesterday.getMonth()]);
 var yesterday_year = String(yesterday.getFullYear());
 
 
