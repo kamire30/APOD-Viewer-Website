@@ -42,16 +42,39 @@
         </section>
         
         <section id="middle-page">
-            <img>
-            <img>
-            <img>
+            <div class="middle-page-div">
+                <img id="yesterday-img" class="apod-img">
+            </div>
+
+            <div class="middle-page-div" id="today-data">
+                <img id="today-img" class="apod-img">
+                <div class="middle-inner-div">
+                    <button id="move-back">Yesterday</button>
+                    <img class="calendar-icon" src="/static/imgs/calendar.jpg" alt="Calendar Icon">
+                    <h2 class="apod-info" id="date-text">Date: - -</h2>
+                    <button id="move-forward">Tomorrow</button>
+                </div>
+            </div>
+
+            <div class="middle-page-div">
+                <div>
+                    <img id="tmrw-img" class="apod-img">`
+                </div>
+            </div>
         </section>
 
         <section id="bottom-page">
-            <button id="timeline-back"></button>
-            <div>
-                <h2 class="apod-info"></h2>
-                <img src="/static/imgs/calendar.jpg" alt="Calendar Icon">
+            <div id="apod-stats">
+                <img class="apod-stats-img" id="camera-stat" src="static/imgs/camera.png">
+                <h4>Photographer: - -</h4>
+                <img class="apod-stats-img" id="link-stat" src="static/imgs/link.png">
+                <h4>Original Image: - -</h4>
+                <img class="apod-stats-img">
+                <h4>Media Type: - -</h4>
+                <img class="apod-stats-img">
+                <h4>Service Version: - -</h4>
+            </div>
+            <div id="apod-explanation">
             </div>
         </section>
     </body>
