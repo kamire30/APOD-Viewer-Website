@@ -123,12 +123,14 @@ li a:hover {
 }
 
 /* Middle Page */
+
 #middle-page {
     position: relative;
     display: grid;
     justify-content: center;
     align-items: center;
-    grid-template-columns: 27vw 50vw 27vw;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 4vw;
 }
 
 .apod-img {
@@ -139,7 +141,6 @@ li a:hover {
 }
 
 .middle-page-div {
-    position: relative;
     transition: bottom 0.5s ease-in-out;
     -webkit-transition: bottom 0.5s ease-in-out;
     bottom: 0;
@@ -157,6 +158,10 @@ li a:hover {
 }
 
 /* IFRAME */
+
+#yesterday-img:hover, #tmrw-img:hover, #yesterday-vid:hover #tmrw-vid:hover {
+    opacity: 0.1;
+}
 
 #today-data {
     display: grid;
@@ -180,41 +185,29 @@ li a:hover {
     height: 25vw;
 }
 
-#yesterday-data {
-    width: 25vw;
-    height: 25vw;
-    padding-right: 1.5vw;
-}
-
 #yesterday-img, #tmrw-img {
     transition-duration: opacity 0.5s ease-in-out;
     max-width: 25vw;
     max-height: 20vw;
     opacity: 0.6;
     margin-bottom: 8vw;
+    float: right;
 }  
 
 #yesterday-vid, #tmrw-vid {
     width: 25vw;
     height: 20vw;
-}
-
-#yesterday-img:hover, #tmrw-img:hover {
-    opacity: 0.8;
-}
-
-#yesterday-img {
     float: right;
+}
+
+
+#yesterday-data {
+    width: 25vw;
 }
 
 #tmrw-data {
     display: flex;
     width: 25vw;
-    padding-left: 2vw;
-}
-
-#tmrw-img {
-    float: left;
 }
 
 .middle-inner-div {

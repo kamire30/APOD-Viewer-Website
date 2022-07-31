@@ -1,5 +1,6 @@
 document.getElementById("move-back").addEventListener("click", function(){move_back()});
-document.getElementById("yesterday-img").addEventListener("click", function(){move_back()});
+document.getElementById("move-forward").addEventListener("click", function(){move_forward()});
+
 document.onkeydown = checkKey;
 
 function checkKey(e) {
@@ -8,10 +9,12 @@ function checkKey(e) {
 
     if (e.keyCode == '37') {
         move_back()
+    } else if (e.keyCode == '39') {
+        move_forward()
     }
 }
 
-var moveback_date
+var move_date
 
 function fetch_images(yesterday, today, tomorrow, option=null) {
     fetch(`/.netlify/functions/fetch_images?start_date=${yesterday}&today_date=${today}&tomorrow_date=${tomorrow}`)
@@ -20,6 +23,12 @@ function fetch_images(yesterday, today, tomorrow, option=null) {
             if (option != null) {
                 return data
             }
+
+            if (data.length == 1) {
+                move_back()
+            }
+            
+            document.getElementById("title-text").innerHTML = data[1]["title"];
 
             if (data[1]["media_type"] == "video") {
                 const img = document.getElementById("today-img");
@@ -88,8 +97,6 @@ function fetch_images(yesterday, today, tomorrow, option=null) {
                 document.getElementById("tmrw-img").src = data[2]["hdurl"];
             }
 
-            document.getElementById("title-text").innerHTML = data[1]["title"];
-
             if (data[1]["copyright"] == undefined) {
                 photographer = "None Found"
             } else {
@@ -110,7 +117,7 @@ function fetch_images(yesterday, today, tomorrow, option=null) {
 
 
 function move_back() {
-    const today = new Date(moveback_date);
+    const today = new Date(move_date);
     const yesterday = new Date(today);
     const months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
     var today_day = String(today.getDate());
@@ -136,8 +143,39 @@ function move_back() {
 
     const yesterday_arg = `${yesterday_year}-${yesterday_month}-${yesterday_day}`;
     const today_arg = `${today_year}-${today_month}-${today_day}`
-    moveback_date = yesterday_arg;
+    move_date = yesterday_arg;
     fetch_images(yesterday_arg, today_arg, "n");
+}
+
+function move_forward() {
+    const today = new Date(move_date);
+    const tmrw = new Date(today);
+    const months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
+    var today_day = String(today.getDate());
+    var today_month = String(months[today.getMonth()]);
+    var today_year = String(today.getFullYear());
+    var tmrw_day = String(tmrw.getDate()+1);
+    var tmrw_month = String(months[tmrw.getMonth()]);
+    var tmrw_year = String(tmrw.getFullYear());
+
+
+    if (today_day.length == 1) {
+        today_day = `0${today_day}`
+    }
+    if (tmrw_day.length == 1) {
+        tmrw_day = `0${tmrw_day}`
+    }
+    if (today_month.length == 1) {
+        today_month = `0${today_month}`
+    }
+    if (tmrw_month.length == 1) {
+        tmrw_month = `0${tmrw_month}`
+    };
+
+    const tmrw_arg = `${tmrw_year}-${tmrw_month}-${tmrw_day}`;
+    const today_arg = `${today_year}-${today_month}-${today_day}`
+    move_date = tmrw_arg;
+    fetch_images(today_arg, tmrw_arg, "n");
 }
 
 
@@ -170,5 +208,5 @@ if (yesterday_month.length == 1) {
 
 const yesterday_arg = `${yesterday_year}-${yesterday_month}-${yesterday_day}`;
 const today_arg = `${today_year}-${today_month}-${today_day}`
-moveback_date = new Date(yesterday_arg)
+move_date = new Date(yesterday_arg)
 fetch_images(yesterday_arg, today_arg, "n");
