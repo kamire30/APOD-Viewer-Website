@@ -30,6 +30,15 @@ function fetch_images(yesterday, today, tomorrow, option=null) {
             
             document.getElementById("title-text").innerHTML = data[1]["title"];
 
+            var photographer = "placeholder";
+            if (data[1]["copyright"] == undefined) {
+                photographer = "None Found"
+            } else {
+                photographer = data[1]["copyright"];
+            }
+
+            document.getElementById("photographer").innerHTML = photographer;
+
             if (data[1]["media_type"] == "video") {
                 const img = document.getElementById("today-img");
                 const vid = document.getElementById("today-vid");
@@ -97,17 +106,9 @@ function fetch_images(yesterday, today, tomorrow, option=null) {
                 document.getElementById("tmrw-img").src = data[2]["hdurl"];
             }
 
-            if (data[1]["copyright"] == undefined) {
-                photographer = "None Found"
-            } else {
-                photographer = data[1]["copyright"];
-            }
-
             if (data.length == 2) {
                 document.getElementById("move-forward").disabled = true;
             }
-
-            document.getElementById("photographer").innerHTML = photographer;
 
             if (data.length == 3) {
                 document.getElementById("tmrw-img").src = data[2]["hdurl"];
@@ -151,8 +152,11 @@ function move_back() {
 }
 
 function move_forward() {
+    let x = new Date()
     let today = new Date();
     let tmrw = new Date();
+    
+    today.setDate(x.getDate() - move_date);
 
     move_date -= 1;
 
