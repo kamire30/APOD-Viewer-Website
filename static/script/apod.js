@@ -117,13 +117,17 @@ function fetch_images(yesterday, today, tomorrow, option=null) {
 
 
 function move_back() {
-    const today = new Date(move_date);
-    const yesterday = new Date(today);
+    let today = new Date();
+    let yesterday = new Date();
+
+    move_date += 1;
+
+    yesterday.setDate(today.getDate() - move_date);
     const months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
     var today_day = String(today.getDate());
     var today_month = String(months[today.getMonth()]);
     var today_year = String(today.getFullYear());
-    var yesterday_day = String(yesterday.getDate()-1);
+    var yesterday_day = String(yesterday.getDate());
     var yesterday_month = String(months[yesterday.getMonth()]);
     var yesterday_year = String(yesterday.getFullYear());
 
@@ -143,18 +147,21 @@ function move_back() {
 
     const yesterday_arg = `${yesterday_year}-${yesterday_month}-${yesterday_day}`;
     const today_arg = `${today_year}-${today_month}-${today_day}`
-    move_date = yesterday_arg;
     fetch_images(yesterday_arg, today_arg, "n");
 }
 
 function move_forward() {
-    const today = new Date(move_date);
-    const tmrw = new Date(today);
+    let today = new Date();
+    let tmrw = new Date();
+
+    move_date -= 1;
+
+    tmrw.setDate(today.getDate() - move_date);
     const months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
     var today_day = String(today.getDate());
     var today_month = String(months[today.getMonth()]);
     var today_year = String(today.getFullYear());
-    var tmrw_day = String(tmrw.getDate()+1);
+    var tmrw_day = String(tmrw.getDate());
     var tmrw_month = String(months[tmrw.getMonth()]);
     var tmrw_year = String(tmrw.getFullYear());
 
@@ -174,7 +181,6 @@ function move_forward() {
 
     const tmrw_arg = `${tmrw_year}-${tmrw_month}-${tmrw_day}`;
     const today_arg = `${today_year}-${today_month}-${today_day}`
-    move_date = tmrw_arg;
     fetch_images(today_arg, tmrw_arg, "n");
 }
 
@@ -183,12 +189,14 @@ function move_forward() {
 document.getElementById("tmrw-img").src = "static/imgs/red-gradient.gif"
 
 const today = new Date();
-const yesterday = new Date(today);
+const yesterday = new Date();
+
+yesterday.setDate(today.getDate() - 1);
 const months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
 var today_day = String(today.getDate());
 var today_month = String(months[today.getMonth()]);
 var today_year = String(today.getFullYear());
-var yesterday_day = String(yesterday.getDate()-1);
+var yesterday_day = String(yesterday.getDate());
 var yesterday_month = String(months[yesterday.getMonth()]);
 var yesterday_year = String(yesterday.getFullYear());
 
@@ -208,5 +216,5 @@ if (yesterday_month.length == 1) {
 
 const yesterday_arg = `${yesterday_year}-${yesterday_month}-${yesterday_day}`;
 const today_arg = `${today_year}-${today_month}-${today_day}`
-move_date = new Date(yesterday_arg)
+move_date = 1
 fetch_images(yesterday_arg, today_arg, "n");

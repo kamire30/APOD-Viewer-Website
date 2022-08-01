@@ -9,9 +9,9 @@ const handler = async (event) => {
 
     try {
         if (end_date == "n") {
-            url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&start_date=${start_date}`;
+            url = `https://apod.ellanan.com/api?start_date=${start_date}`;
         } else {
-            url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&start_date=${start_date}&end_date=${end_date}`
+            url = `https://apod.ellanan.com/api?start_date=${start_date}&end_date=${end_date}`
         }
 
         const { data } = await axios.get(url);
