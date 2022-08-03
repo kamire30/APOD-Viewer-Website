@@ -8,6 +8,10 @@
     font-family: Signal;
     src: url(/static/fonts/signal-normal.otf)
 }
+@font-face {
+    font-family: ChivoBlack;
+    src: url(/static/fonts/chivo-black.otf)
+}
 
 /* Main Styling */
 
@@ -141,6 +145,7 @@ li a:hover {
 }
 
 .middle-page-div {
+    position: relative;
     transition: bottom 0.5s ease-in-out;
     -webkit-transition: bottom 0.5s ease-in-out;
     bottom: 0;
@@ -158,10 +163,6 @@ li a:hover {
 }
 
 /* IFRAME */
-
-#yesterday-img:hover, #tmrw-img:hover, #yesterday-vid:hover #tmrw-vid:hover {
-    opacity: 0.1;
-}
 
 #today-data {
     display: grid;
@@ -189,7 +190,6 @@ li a:hover {
     transition-duration: opacity 0.5s ease-in-out;
     max-width: 25vw;
     max-height: 20vw;
-    opacity: 0.6;
     margin-bottom: 8vw;
     float: right;
 }  
@@ -200,14 +200,19 @@ li a:hover {
     float: right;
 }
 
-
 #yesterday-data {
     width: 25vw;
+    opacity: 0.6;
 }
 
 #tmrw-data {
     display: flex;
     width: 25vw;
+    opacity: 0.6;
+}
+
+#yesterday-data:hover, #tmrw-data:hover {
+    opacity: 0.9;
 }
 
 .middle-inner-div {
@@ -231,15 +236,56 @@ li a:hover {
     height: 3vw;
     margin: auto 2vw auto 2vw;
     font-family: Signal;
+    font-size: 0.8em;
     cursor: pointer;
 }
 
 /* Bottom page */
-#camera-stat {
-    max-width: 2.5vw;
+#bottom-page {
+    width: 100vw;
+    height: 20vw;
+    margin-top: 3vw;
 }
 
-#link-stat {
-    max-width: 3.5vw;
+.outer-bottom-div {
+    width: 50vw;
 }
+
+#apod-stats-div {
+    background-image: url(/static/imgs/red-gradient.gif);
+    border: solid thin white;
+    width: 30vw;
+    float: right;
+    margin-right: 5vw;
+    border-radius: 3px;
+}
+
+#apod-stats-div div {
+    display: flex;
+    height: 4vw;
+    align-items: center;
+}
+
+.apod-stats {
+    font-size: 1.3em;
+    font-family: AltaLight;
+    text-align: center;
+    color: white;
+    float: left;
+}
+
+.apod-stats-img {
+    position: relative;
+    max-width: 4vw;
+    max-height: 3vw;
+    margin: auto 2vw auto 1vw;
+    float: left;
+}
+
+#apod-explanation {
+    width: 60vw;
+    float: left;
+}
+
+
 
