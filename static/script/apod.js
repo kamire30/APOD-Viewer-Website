@@ -152,7 +152,13 @@ function move_back() {
 
     const yesterday_arg = `${yesterday_year}-${yesterday_month}-${yesterday_day}`;
     const tmrw_arg = `${tmrw_year}-${tmrw_month}-${tmrw_day}`
-    fetch_images(yesterday_arg, "n", tmrw_arg);
+
+
+    if (move_date == 0 | move_date == 1) {
+        fetch_images(yesterday_arg, "n", "n");
+    } else {
+        fetch_images(yesterday_arg, "n", tmrw_arg);
+    }
 }
 
 function move_forward() {
