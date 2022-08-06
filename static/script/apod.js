@@ -44,6 +44,22 @@ function fetch_images(yesterday, today, tomorrow) {
 
             document.getElementById("photographer").innerHTML = photographer;
 
+            if (photographer.length > 25) {
+                document.getElementById("camera-h4").innerHTML = `Photographer: ${photographer.substring(0, 25) + "..."}`;
+            } else {
+                document.getElementById("camera-h4").innerHTML = `Photographer: ${photographer}`;
+            };
+            
+            const link_div = document.getElementById("link-div");
+            const media_stat = document.getElementById("media-h4");
+            const version_stat = document.getElementById("version-h4");
+            const explanation = document.getElementById("apod-explanation-p");
+
+            link_div.setAttribute("href", data[1]["url"]);
+            media_stat.innerHTML = `Media Type: ${data[1]["media_type"]}`;
+            version_stat.innerHTML = `Service Version: ${data[1]["service_version"]}`;
+            explanation.innerHTML = data[1]["explanation"];
+
             if (data[1]["media_type"] == "video") {
                 const img = document.getElementById("today-img");
                 const vid = document.getElementById("today-vid");
@@ -52,7 +68,7 @@ function fetch_images(yesterday, today, tomorrow) {
                 img.style.position = "absolute";
                 vid.style.opacity = 100;
                 vid.style.position = "static";
-                vid.src = data[1]["url"]
+                vid.src = data[1]["url"];
             }
             else {
                 const img = document.getElementById("today-img");
@@ -62,9 +78,9 @@ function fetch_images(yesterday, today, tomorrow) {
                 img.style.position = "static";
                 vid.style.opacity = 0;
                 vid.style.position = "absolute";
-                
+
                 document.getElementById("today-img").src = data[1]["hdurl"];
-                document.getElementById("date-text").innerHTML = data[1]["date"]
+                document.getElementById("date-text").innerHTML = data[1]["date"];
             }
 
             if (data[0]["media_type"] == "video") {
@@ -114,7 +130,6 @@ function fetch_images(yesterday, today, tomorrow) {
             if (data.length == 3) {
                 document.getElementById("tmrw-img").src = data[2]["hdurl"];
             }
-
             })
 }
 
@@ -127,14 +142,15 @@ function move_back() {
     move_date += 1;
 
     yesterday.setDate(x.getDate() - move_date);
-    tmrw.setDate(yesterday.getDate() + 2)
-    const months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
-    var tmrw_day = String(tmrw.getDate());
-    var tmrw_month = String(months[tmrw.getMonth()-1]);
-    var tmrw_year = String(tmrw.getFullYear());
-    var yesterday_day = String(yesterday.getDate());
-    var yesterday_month = String(months[yesterday.getMonth()]);
-    var yesterday_year = String(yesterday.getFullYear());
+    tmrw.setDate(x.getDate() - move_date + 2)
+
+    let tmrw_day = String(tmrw.getDate());
+    let tmrw_month = String(tmrw.getMonth()+1);
+    let tmrw_year = String(tmrw.getFullYear());
+
+    let yesterday_day = String(yesterday.getDate());
+    let yesterday_month = String(yesterday.getMonth()+1);
+    let yesterday_year = String(yesterday.getFullYear());
 
 
     if (tmrw_day.length == 1) {
@@ -154,7 +170,7 @@ function move_back() {
     const tmrw_arg = `${tmrw_year}-${tmrw_month}-${tmrw_day}`
 
 
-    if (move_date == 0 | move_date == 1) {
+    if (move_date <= 3) {
         fetch_images(yesterday_arg, "n", "n");
     } else {
         fetch_images(yesterday_arg, "n", tmrw_arg);
@@ -171,14 +187,14 @@ function move_forward() {
     
     yesterday.setDate(x.getDate() - move_date);
 
-    tmrw.setDate(yesterday.getDate() + 2);
-    const months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
-    var yesterday_day = String(yesterday.getDate());
-    var yesterday_month = String(months[yesterday.getMonth()]);
-    var yesterday_year = String(yesterday.getFullYear());
-    var tmrw_day = String(tmrw.getDate());
-    var tmrw_month = String(months[tmrw.getMonth()-1]);
-    var tmrw_year = String(tmrw.getFullYear());
+    tmrw.setDate(x.getDate() - move_date + 2);
+    let yesterday_day = String(yesterday.getDate());
+    let yesterday_month = String(yesterday.getMonth()+1)
+    let yesterday_year = String(yesterday.getFullYear());
+
+    let tmrw_day = String(tmrw.getDate());
+    let tmrw_month = String(tmrw.getMonth()+1)
+    let tmrw_year = String(tmrw.getFullYear());
 
 
     if (yesterday_day.length == 1) {
@@ -197,13 +213,12 @@ function move_forward() {
     const tmrw_arg = `${tmrw_year}-${tmrw_month}-${tmrw_day}`;
     const yesterday_arg = `${yesterday_year}-${yesterday_month}-${yesterday_day}`
 
-    if (move_date == 1) {
+    if (move_date <= 3) {
         fetch_images(yesterday_arg, "n", "n");
     } else {
         fetch_images(yesterday_arg, "n", tmrw_arg);
     }
 }
-
 
 
 document.getElementById("tmrw-img").src = "static/imgs/red-gradient.gif"
@@ -212,13 +227,14 @@ const today = new Date();
 const yesterday = new Date();
 
 yesterday.setDate(today.getDate() - 1);
-const months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
-var today_day = String(today.getDate());
-var today_month = String(months[today.getMonth()]);
-var today_year = String(today.getFullYear());
-var yesterday_day = String(yesterday.getDate());
-var yesterday_month = String(months[yesterday.getMonth()]);
-var yesterday_year = String(yesterday.getFullYear());
+
+let today_day = String(today.getDate());
+let today_month = String(today.getMonth()+1);
+let today_year = String(today.getFullYear());
+
+let yesterday_day = String(yesterday.getDate());
+let yesterday_month = String(yesterday.getMonth()+1);
+let yesterday_year = String(yesterday.getFullYear());
 
 
 if (today_day.length == 1) {

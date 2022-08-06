@@ -12,6 +12,10 @@
     font-family: ChivoBlack;
     src: url(/static/fonts/chivo-black.otf)
 }
+@font-face {
+    font-family: Hattori;
+    src: url(/static/fonts/hattori.otf)
+}
 
 /* Main Styling */
 
@@ -242,21 +246,24 @@ li a:hover {
 
 /* Bottom page */
 #bottom-page {
+    display: grid;
     width: 100vw;
-    height: 20vw;
+    height: 50vw;
     margin-top: 3vw;
+    grid-template-columns: 1fr;
+    grid-template-rows: 25vw 25vw;
 }
 
 .outer-bottom-div {
-    width: 50vw;
+    width: (100% - 1vw);
+    height: 25vw;
+    margin-inline: auto;
 }
 
 #apod-stats-div {
     background-image: url(/static/imgs/red-gradient.gif);
     border: solid thin white;
-    width: 30vw;
-    float: right;
-    margin-right: 5vw;
+    width: 45vw;
     border-radius: 3px;
 }
 
@@ -282,10 +289,39 @@ li a:hover {
     float: left;
 }
 
-#apod-explanation {
-    width: 60vw;
-    float: left;
+#link-div:hover {
+    cursor: pointer;
 }
 
+#apod-explanation {
+    position: relative;
+    display: grid;
+    overflow: hidden;
+    bottom: 5vw;
+    width: 60vw;
+    min-height: 15vw;
+    margin-inline: auto;
+    padding: 1vw 1vw 1vw 1vw;
+    border: solid thin white;
+    background-image: linear-gradient(rgb(141, 12, 12), rgb(238, 156, 156));
+    border-radius: 3px;
+    justify-content: center;
+    align-items: center;
+}
+
+#apod-explanation h2 {
+    text-align: center;
+    font-size: 2em;
+    margin: 0;
+    color: white;
+    font-family: AltaLight;
+}
+
+#apod-explanation p {
+    color: white;
+    text-align: center;
+    font-family: Hattori;
+    font-size: 1.2em;
+}
 
 

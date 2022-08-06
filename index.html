@@ -73,31 +73,32 @@
         </section>
 
         <section id="bottom-page">
-            <div class="outer-bottom-div">
+            <div class="outer-bottom-div" id="apod-stats-unique">
                 <div id="apod-stats-div">
                     <div>
                         <img class="apod-stats-img" id="camera-stat" src="static/imgs/camera-two.png">
-                        <h4 class="apod-stats">Photographer: - -</h4>
+                        <h4 class="apod-stats" id="camera-h4">Photographer: - -</h4>
                     </div>
-                    <div>
-                        <img class="apod-stats-img" id="link-stat" src="static/imgs/link.png">
-                        <h4 class="apod-stats">Original Image: - -</h4>
-                    </div>
+                    <a id="link-div" target="_blank">
+                        <div>
+                            <img class="apod-stats-img" id="link-stat" src="static/imgs/link.png">
+                            <h4 class="apod-stats" id="link-h4">Original Link Click Here!</h4>
+                        </div>
+                    </a>
                     <div>
                         <img class="apod-stats-img" id="media-stat" src="static/imgs/image-icon.png">
-                        <h4 class="apod-stats">Media Type: - -</h4>
+                        <h4 class="apod-stats" id="media-h4">Media Type: - -</h4>
                     </div>
                     <div>
                         <img class="apod-stats-img" id="version-stat" src="static/imgs/version.png">
-                        <h4 class="apod-stats">Service Version: - -</h4>
+                        <h4 class="apod-stats" id="version-h4">Service Version: - -</h4>
                     </div>
                 </div>
             </div>
 
-            <div class="outer-bottom-div">
-                <div id="apod-explanation">
-                    <p>Text</p>
-                </div>
+            <div class="outer-bottom-div" id="apod-explanation">
+                <h2>Explanation</h2>
+                <p id="apod-explanation-p">Text</p>
             </div>
         </section>
     </body>
