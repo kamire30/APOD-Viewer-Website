@@ -1,7 +1,17 @@
+/* Events */
+
 document.getElementById("move-back").addEventListener("click", function(){move_back()});
 document.getElementById("move-forward").addEventListener("click", function(){move_forward()});
+document.getElementById("submit-btn").addEventListener("click", function(){search_apod(document.getElementById("search-bar").value)});
+window.addEventListener('scroll', () => {
+    document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
+  }, false);
 
 document.onkeydown = checkKey;
+
+
+/* Functions */
+
 
 function checkKey(e) {
 
@@ -14,14 +24,83 @@ function checkKey(e) {
     }
 }
 
+
+
+function search_apod(value) {
+    const x = new Date();
+    const search_date = new Date(String(value));
+    const search_date_yesterday = new Date();
+    const search_date_tmrw = new Date();
+
+    const today = new Date();
+    const mseconds = today.getTime() - search_date.getTime();
+    const no_of_days = Math.ceil(mseconds / (86400000));
+
+    move_date = no_of_days;
+
+    search_date_yesterday.setDate(x.getDate() - move_date);
+    search_date_tmrw.setDate(x.getDate() - move_date + 2);
+
+    let yesterday_day = String(search_date_yesterday.getDate());
+    let yesterday_month = String(search_date_yesterday.getMonth()+1)
+    let yesterday_year = String(search_date_yesterday.getFullYear());
+
+    let tmrw_day = String(search_date_tmrw.getDate());
+    let tmrw_month = String(search_date_tmrw.getMonth()+1)
+    let tmrw_year = String(search_date_tmrw.getFullYear());
+
+
+    if (yesterday_day.length == 1) {
+        yesterday_day = `0${yesterday_day}`
+    }
+    if (tmrw_day.length == 1) {
+        tmrw_day = `0${tmrw_day}`
+    }
+    if (yesterday_month.length == 1) {
+        yesterday_month = `0${yesterday_month}`
+    }
+    if (tmrw_month.length == 1) {
+        tmrw_month = `0${tmrw_month}`
+    };
+
+    const tmrw_arg = `${tmrw_year}-${tmrw_month}-${tmrw_day}`;
+    const yesterday_arg = `${yesterday_year}-${yesterday_month}-${yesterday_day}`
+
+    if (move_date >= 3) {
+        fetch_images(yesterday_arg, "n", tmrw_arg);
+    } else {
+        fetch_images(yesterday_arg, "n", "n");
+    }
+}
+
+
+
 var move_date = 1;
+
+function update_current_day() {
+    const today = new Date();
+    const year = today.getFullYear();
+    let month = today.getMonth() + 1;
+    let day = today.getDate();
+
+    if (month < 10) {
+        month = "0" + month;
+    }
+
+    if (day < 10) {
+        day = '0' + day;
+     }
+
+    const arg = `${year}-${month}-${day}`
+    document.getElementById("search-bar").setAttribute("max", arg);
+}
+
+
 
 function fetch_images(yesterday, today, tomorrow) {
     fetch(`/.netlify/functions/fetch_images?start_date=${yesterday}&today_date=${today}&tomorrow_date=${tomorrow}`)
         .then(res => res.json())
         .then(data => {
-            console.log(move_date);
-
             if (data.length == 1) {
                 move_back()
             }
@@ -55,7 +134,7 @@ function fetch_images(yesterday, today, tomorrow) {
             const version_stat = document.getElementById("version-h4");
             const explanation = document.getElementById("apod-explanation-p");
 
-            link_div.setAttribute("href", data[1]["url"]);
+            link_div.setAttribute("href", data[1]["hdurl"]);
             media_stat.innerHTML = `Media Type: ${data[1]["media_type"]}`;
             version_stat.innerHTML = `Service Version: ${data[1]["service_version"]}`;
             explanation.innerHTML = data[1]["explanation"];
@@ -134,7 +213,9 @@ function fetch_images(yesterday, today, tomorrow) {
 }
 
 
+
 function move_back() {
+    update_current_day();
     let x = new Date();
     let tmrw = new Date();
     let yesterday = new Date();
@@ -169,15 +250,18 @@ function move_back() {
     const yesterday_arg = `${yesterday_year}-${yesterday_month}-${yesterday_day}`;
     const tmrw_arg = `${tmrw_year}-${tmrw_month}-${tmrw_day}`
 
-
     if (move_date <= 3) {
         fetch_images(yesterday_arg, "n", "n");
     } else {
         fetch_images(yesterday_arg, "n", tmrw_arg);
     }
+
 }
 
+
+
 function move_forward() {
+    update_current_day();
     let x = new Date();
     let yesterday = new Date();
     let tmrw = new Date();
@@ -221,6 +305,9 @@ function move_forward() {
 }
 
 
+/* On Load */
+
+
 document.getElementById("tmrw-img").src = "static/imgs/red-gradient.gif"
 
 const today = new Date();
@@ -252,4 +339,8 @@ if (yesterday_month.length == 1) {
 
 const yesterday_arg = `${yesterday_year}-${yesterday_month}-${yesterday_day}`;
 const today_arg = `${today_year}-${today_month}-${today_day}`
+
 fetch_images(yesterday_arg, today_arg, "n");
+update_current_day()
+
+

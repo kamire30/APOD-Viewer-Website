@@ -61,6 +61,48 @@ li a:hover {
     background-color: rgb(206, 159, 159)
 }
 
+#search-bar-li {
+    display: flex;
+    position: relative;
+    float: right;
+}
+
+form {
+    margin-right: 1.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 16px;
+}
+
+.search {
+    height: 2vw;
+    border-radius: 3px;
+    float: left;
+}
+
+#search-bar {
+    width: 10vw;
+    padding-left: 0.5vw;
+    border: solid thin gray;
+}
+
+#search-bar::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+  }
+
+#submit-btn {
+    width: 2.3vw;
+    height: 2.5vw;
+    background-image: url(/static/imgs/search-icon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#submit-btn:hover {
+    cursor: pointer;
+}
+
 /* Top Page */
 #top-page {
     display: grid;
@@ -139,6 +181,7 @@ li a:hover {
     align-items: center;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 4vw;
+    margin-bottom: 3vw;
 }
 
 .apod-img {
@@ -245,19 +288,32 @@ li a:hover {
 }
 
 /* Bottom page */
+
+
+@keyframes fade-in {
+    from {opacity: 0; right: 30vw;}
+    to {opacity: 1; right: 0vw;}
+}
+
 #bottom-page {
     display: grid;
     width: 100vw;
     height: 50vw;
-    margin-top: 3vw;
     grid-template-columns: 1fr;
     grid-template-rows: 25vw 25vw;
 }
 
 .outer-bottom-div {
+    position: relative;
+}
+
+#apod-stats-unique {
     width: (100% - 1vw);
     height: 25vw;
     margin-inline: auto;
+    animation: fade-in 1s linear;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1.3s);
 }
 
 #apod-stats-div {
@@ -294,27 +350,25 @@ li a:hover {
 }
 
 #apod-explanation {
-    position: relative;
     display: grid;
-    overflow: hidden;
     bottom: 5vw;
     width: 60vw;
-    min-height: 15vw;
     margin-inline: auto;
     padding: 1vw 1vw 1vw 1vw;
     border: solid thin white;
     background-image: linear-gradient(rgb(141, 12, 12), rgb(238, 156, 156));
     border-radius: 3px;
-    justify-content: center;
-    align-items: center;
+    animation: fade-in 1s linear;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
 }
 
 #apod-explanation h2 {
     text-align: center;
     font-size: 2em;
-    margin: 0;
     color: white;
     font-family: AltaLight;
+    margin: 0 0 0 0;
 }
 
 #apod-explanation p {
@@ -322,6 +376,7 @@ li a:hover {
     text-align: center;
     font-family: Hattori;
     font-size: 1.2em;
+    margin: 0.5vw 0 0 0;
 }
 
 
