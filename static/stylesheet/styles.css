@@ -231,6 +231,7 @@ form {
 #today-vid {
     width: 40vw;
     height: 25vw;
+    z-index: 3;
 }
 
 #yesterday-img, #tmrw-img {
@@ -285,6 +286,7 @@ form {
     font-family: Signal;
     font-size: 0.8em;
     cursor: pointer;
+    z-index: 1;
 }
 
 /* Bottom page */

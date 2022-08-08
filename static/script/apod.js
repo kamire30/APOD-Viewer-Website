@@ -145,9 +145,10 @@ function fetch_images(yesterday, today, tomorrow) {
 
                 img.style.opacity = 0;
                 img.style.position = "absolute";
-                vid.style.opacity = 100;
+                vid.style.opacity = 1;
                 vid.style.position = "static";
-                vid.src = `${data[1]["url"]}&autoplay=1&muted=1&controls=1`;
+                vid.src = data[1]["url"];
+                document.getElementById("date-text").innerHTML = data[1]["date"];
             }
             else {
                 const img = document.getElementById("today-img");
