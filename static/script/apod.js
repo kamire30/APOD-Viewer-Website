@@ -147,7 +147,7 @@ function fetch_images(yesterday, today, tomorrow) {
                 img.style.position = "absolute";
                 vid.style.opacity = 100;
                 vid.style.position = "static";
-                vid.src = `${data[1]["url"]}&autoplay=1&mute=1`;
+                vid.src = `${data[1]["url"]}&autoplay=1&mute=1&controls=1`;
             }
             else {
                 const img = document.getElementById("today-img");
