@@ -147,7 +147,7 @@ function fetch_images(yesterday, today, tomorrow) {
                 img.style.position = "absolute";
                 vid.style.opacity = 100;
                 vid.style.position = "static";
-                vid.src = data[1]["url"];
+                vid.src = `${data[1]}&autoplay=1&mute=1`;
             }
             else {
                 const img = document.getElementById("today-img");
@@ -170,7 +170,7 @@ function fetch_images(yesterday, today, tomorrow) {
                 img.style.position = "absolute";
                 vid.style.opacity = 0.6;
                 vid.style.position = "static";
-                vid.src = data[0]["url"]
+                vid.src =`${data[0]}&autoplay=1&mute=1`;
             } 
             else {
                 const img = document.getElementById("yesterday-img");
@@ -192,7 +192,7 @@ function fetch_images(yesterday, today, tomorrow) {
                 img.style.position = "absolute";
                 vid.style.opacity = 0.6;
                 vid.style.position = "static";
-                vid.src = data[2]["url"]
+                vid.src =`${data[2]}&autoplay=1&mute=1`;
             }
             else {
                 const img = document.getElementById("tmrw-img");
