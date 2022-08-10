@@ -93,7 +93,8 @@ form {
 
 #submit-btn {
     width: 2.3vw;
-    height: 2.5vw;
+    height: 2vw;
+    border: none;
     background-image: url(/static/imgs/search-icon.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -101,6 +102,12 @@ form {
 
 #submit-btn:hover {
     cursor: pointer;
+}
+
+#reset-btn {
+    height: 2vw;
+    border: none;
+    margin-right: 0.3vw;
 }
 
 /* Top Page */
@@ -352,7 +359,9 @@ form {
 }
 
 #apod-explanation {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    height: fit-content;
     bottom: 5vw;
     width: 60vw;
     margin-inline: auto;
@@ -366,19 +375,22 @@ form {
 }
 
 #apod-explanation h2 {
+    display: block;
+    width: 60vw;
     text-align: center;
     font-size: 2em;
     color: white;
     font-family: AltaLight;
-    margin: 0 0 0 0;
+    margin: 0 0 1vw 0;
 }
 
 #apod-explanation p {
+    width: 60vw;
     color: white;
     text-align: center;
     font-family: Hattori;
     font-size: 1.2em;
-    margin: 0.5vw 0 0 0;
+    margin: 0.5vw 0 0.5vw 0;
 }
 
 

@@ -15,6 +15,7 @@
             <li><a href="http://simpleweathertracker.netlify.app">WeatherTracker</a></li>
             <li id="search-bar-li">
                 <form onsubmit="return false">
+                    <button type="reset" class="search" id="reset-btn">Reset</button>
                     <input type="date" name="date" class="search" id="search-bar" min="1995-06-20" required>
                     <button type="submit" class="search" id="submit-btn"></button>
                 </form>
@@ -103,8 +104,12 @@
             </div>
 
             <div class="outer-bottom-div" id="apod-explanation">
-                <h2>Explanation</h2>
-                <p id="apod-explanation-p">Text</p>
+                <div>
+                    <h2>Explanation</h2>
+                </div>
+                <div>
+                    <p id="apod-explanation-p">Text</p>
+                </div>
             </div>
         </section>
     </body>

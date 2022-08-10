@@ -3,6 +3,7 @@
 document.getElementById("move-back").addEventListener("click", function(){move_back()});
 document.getElementById("move-forward").addEventListener("click", function(){move_forward()});
 document.getElementById("submit-btn").addEventListener("click", function(){search_apod(document.getElementById("search-bar").value)});
+document.getElementById("reset-btn").addEventListener("click", function(){reset_apod()});
 window.addEventListener('scroll', () => {
     document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
   }, false);
@@ -22,6 +23,44 @@ function checkKey(e) {
     } else if (e.keyCode == '39') {
         move_forward()
     }
+}
+
+
+
+function reset_apod(){
+    move_date = 1;
+    
+    const today = new Date();
+    const yesterday = new Date();
+
+    yesterday.setDate(today.getDate() - 1);
+
+    let today_day = String(today.getDate());
+    let today_month = String(today.getMonth()+1);
+    let today_year = String(today.getFullYear());
+
+    let yesterday_day = String(yesterday.getDate());
+    let yesterday_month = String(yesterday.getMonth()+1);
+    let yesterday_year = String(yesterday.getFullYear());
+
+
+    if (today_day.length == 1) {
+        today_day = `0${today_day}`
+    }
+    if (yesterday_day.length == 1) {
+        yesterday_day = `0${yesterday_day}`
+    }
+    if (today_month.length == 1) {
+        today_month = `0${today_month}`
+    }
+    if (yesterday_month.length == 1) {
+        yesterday_month = `0${yesterday_month}`
+    };
+
+    const yesterday_arg = `${yesterday_year}-${yesterday_month}-${yesterday_day}`;
+    const today_arg = `${today_year}-${today_month}-${today_day}`
+
+    fetch_images(yesterday_arg, today_arg, "n");
 }
 
 
