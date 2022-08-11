@@ -19,6 +19,9 @@
 
 /* Main Styling */
 
+html {
+    scroll-behavior: smooth;
+}
 body {
     background-image: url(/static/imgs/background.gif);
     background-repeat: no-repeat;
@@ -312,6 +315,7 @@ form {
     height: 50vw;
     grid-template-columns: 1fr;
     grid-template-rows: 25vw 25vw;
+    padding-top: 3vw;
 }
 
 .outer-bottom-div {

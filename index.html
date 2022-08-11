@@ -6,10 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="/static/stylesheet/styles.css"/>
         <script src="/static/script/apod.js" defer></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <link rel="icon" type="image/x-icon" href="/static/imgs/favicon.png">
         <title>APODViewer - Easy To Use Space Image Viewer</title>
     </head>
-    <body>
+    <body id="body">
         <ul>
             <li><a href="https://goolnk.com/Pb2oMD">Discord Bot</a></li>
             <li><a href="http://simpleweathertracker.netlify.app">WeatherTracker</a></li>
@@ -29,12 +30,14 @@
                         Photographer
                     </h3>
                 </div>
-                <div id="info-click">
-                    <img id=info-icon src="static/imgs/info.jpg" alt="Info Icon">
-                    <h3 class="apod-info">
-                        Click for more info
-                    </h3>
-                </div>
+                <a id="click-for-more">
+                    <div id="info-click">
+                        <img id=info-icon src="static/imgs/info.jpg" alt="Info Icon">
+                        <h3 class="apod-info">
+                            Click for more info
+                        </h3>
+                    </div>
+                </a>
             </div>
             <div id="title">
                 <h2 id="title-text">
@@ -116,5 +119,28 @@
 
             </div>
         </section>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+        <script>
+            VANTA.BIRDS({
+                el: "#body",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color1: 0x0,
+                color2: 0x890e0e,
+                birdSize: 1.20,
+                wingSpan: 40.00,
+                speedLimit: 10.00,
+                cohesion: 100.00,
+                quantity: 2.00,
+                backgroundAlpha: 0.00
+            })
+        </script>
     </body>
 </html>

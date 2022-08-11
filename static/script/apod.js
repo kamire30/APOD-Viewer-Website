@@ -10,6 +10,12 @@ window.addEventListener('scroll', () => {
 
 document.onkeydown = checkKey;
 
+$("#click-for-more").click(function() {
+    $('html,body').animate({
+        scrollTop: $("#bottom-page").offset().top},
+        'slow');
+});
+
 
 /* Functions */
 
