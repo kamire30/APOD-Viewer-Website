@@ -16,18 +16,29 @@
     font-family: Hattori;
     src: url(/static/fonts/hattori.otf)
 }
+@font-face {
+    font-family: BrooklynSemiBold;
+    src: url(/static/fonts/brooklyn-semibold.ttf)
+}
 
 /* Main Styling */
 
 html {
     scroll-behavior: smooth;
 }
+
 body {
     background-image: url(/static/imgs/background.gif);
     background-repeat: no-repeat;
     background-size: cover;
     overflow-x: hidden;
     margin: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 ul {
@@ -71,7 +82,7 @@ li a:hover {
 }
 
 form {
-    margin-right: 1.5vw;
+    margin-right: 0.5vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -310,11 +321,10 @@ form {
 }
 
 #bottom-page {
-    display: grid;
-    width: 100vw;
-    height: 50vw;
-    grid-template-columns: 1fr;
-    grid-template-rows: 25vw 25vw;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
     padding-top: 3vw;
 }
 
@@ -400,11 +410,27 @@ form {
 }
 
 #black-bar {
-    bottom: 5vw;
-    width: 100%;
-    height: 8vw;
-    margin-top: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 103vw;
+    height: 10vw;
     background-color: black;
+    border: none;
 }
 
+#black-bar h1 {
+    color: white;
+    font-family: BrooklynSemiBold;
+    letter-spacing: 2.5vw;
+}
 
+#black-bar h6 {
+    position: relative;
+    color: white;
+    font-family: BrooklynSemiBold;
+    letter-spacing: 0.1vw;
+    right: 1vw;
+    margin-top: 0;
+}
