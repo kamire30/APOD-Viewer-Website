@@ -303,11 +303,11 @@ form {
 }
 
 #move-forward, #move-back {
-    width: 10vw;
+    width: 12vw;
     height: 3vw;
     margin: auto 2vw auto 2vw;
     font-family: Signal;
-    font-size: 0.8em;
+    font-size: 1vw;
     cursor: pointer;
     z-index: 1;
 }
