@@ -219,16 +219,10 @@ form {
     transition: bottom 0.5s ease-in-out;
     -webkit-transition: bottom 0.5s ease-in-out;
     bottom: 0;
-    z-index: 999;
 }
 
 .middle-page-div:hover {
     bottom: 2vw;
-    cursor: pointer;
-}
-
-#yesterday-img:hover {
-    cursor: pointer;
 }
 
 /* IFRAME */
@@ -236,6 +230,10 @@ form {
 #today-vid, #yesterday-vid, #tmrw-vid {
     position: absolute;
     opacity: 0;
+}
+
+#yesterday-vid, #tmrw-vid {
+    pointer-events: none;
 }
 
 /* IFRAME */
