@@ -127,7 +127,6 @@ form {
 }
 
 /* Top Page */
-
 #top-page {
     display: grid;
     grid-template-rows: 20vh;
@@ -218,13 +217,17 @@ form {
 .middle-page-div {
     position: relative;
     transition: bottom 0.5s ease-in-out;
-    -webkit-transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in;
+    -webkit-transition: bottom 0.5s ease-in-out;
     bottom: 0;
-    transition: bottom 0.5s ease-in-out;
-    -webkit-transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in;
-    -moz-transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in;
-    -o-transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in;
-    bottom: 0;
+}
+
+.middle-page-div:hover {
+    bottom: 2vw;
+    cursor: pointer;
+}
+
+#yesterday-img:hover {
+    cursor: pointer;
 }
 
 /* IFRAME */
