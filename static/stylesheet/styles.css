@@ -220,6 +220,11 @@ form {
     transition: bottom 0.5s ease-in-out;
     -webkit-transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in;
     bottom: 0;
+    transition: bottom 0.5s ease-in-out;
+    -webkit-transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in;
+    -moz-transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in;
+    -o-transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in;
+    bottom: 0;
 }
 
 /* IFRAME */
@@ -238,20 +243,10 @@ form {
 }
 
 #today-img-div {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 2vw;
-    transition: bottom 0.5s ease-in-out;
-    -webkit-transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in;
-    -moz-transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in;
-    -o-transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in;
-    bottom: 0;
-}
-
-#today-img-div:hover {
-    bottom: 2vw;
 }
 
 #today-img {
@@ -281,7 +276,6 @@ form {
 #yesterday-data {
     width: 25vw;
     opacity: 0.6;
-    z-index: 9999;
 }
 
 #tmrw-data {
@@ -292,8 +286,6 @@ form {
 
 #yesterday-data:hover, #tmrw-data:hover {
     opacity: 0.9;
-    bottom: 2vw;
-    cursor: pointer;
 }
 
 .middle-inner-div {
