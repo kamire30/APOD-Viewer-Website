@@ -449,15 +449,9 @@ form {
 
 @media only screen and (max-width: 600px) {
 
-    @font-face {
-        font-family: AltaReg;
-        src: url(/static/fonts/alta-regular.otf);
-    }
-
     li a {
         font-size: 2.5vw;
         padding: 1.8vh 1.5vh;
-        font-family: AltaReg;
     }
 
     form {
@@ -488,7 +482,6 @@ form {
     #reset-btn {
         height: 110%;
         font-size: 2vw;
-        background-color: white;
     }
 
     /* Top Page */
@@ -512,7 +505,6 @@ form {
     
     #photographer {
         font-size: 0.6em;
-        font-family: AltaReg;
     }
     
     #camera-icon {
@@ -523,7 +515,6 @@ form {
 
     #info-click h3 {
         font-size: 0.6em;
-        font-family: AltaReg;
     }
     
     #info-icon {
@@ -533,7 +524,6 @@ form {
 
     #title-text {
         font-size: 1.8em;
-        font-family: AltaReg;
         grid-row: 1;
         margin-left: 6vw;
         margin-right: 6vw;
@@ -541,7 +531,6 @@ form {
     
     #sources {
         position: relative;
-        font-family: AltaReg;
         display: flex;
         bottom: 1vw;
         height: 1vw;
@@ -550,7 +539,6 @@ form {
 
     #sources h5 {
         font-size: 1.3vw;
-        font-family: AltaReg;
     }
 }
 
