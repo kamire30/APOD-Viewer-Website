@@ -151,6 +151,13 @@ function fetch_images(yesterday, today, tomorrow) {
             }
 
             if (move_date == 1) {
+                const img = document.getElementById("tmrw-img");
+                const vid = document.getElementById("tmrw-vid");
+            
+                img.style.opacity = 100;
+                img.style.position = "static";
+                vid.style.opacity = 0;
+                vid.style.position = "absolute";
                 document.getElementById("move-forward").disabled = true;
                 document.getElementById("tmrw-img").src = "static/imgs/red-gradient.gif";
             } else {

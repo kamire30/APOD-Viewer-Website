@@ -183,6 +183,7 @@ form {
 #title {
     text-align: center;
 }
+
 #title-text {
     color: white;
     font-family: AltaLight;
@@ -446,7 +447,7 @@ form {
     margin-top: 0;
 }
 
-@media only screen and (max-width: 915px) {
+@media only screen and (max-width: 600px) {
 
     li a {
         font-size: 2.5vw;
@@ -473,10 +474,6 @@ form {
         font-size: 2.2vw;
     }
 
-    #search-bar::-webkit-calendar-picker-indicator {
-        cursor: pointer;
-    }
-
     #submit-btn {
         width: 15%;
         height: 110%;
@@ -486,4 +483,65 @@ form {
         height: 110%;
         font-size: 2vw;
     }
+
+    /* Top Page */
+
+    #top-page {
+        position: relative;
+        display: grid;
+        bottom: 4vw;
+        grid-template-rows: 0.1fr 0.1fr 0.1fr;
+        grid-template-columns: 1fr;
+        margin-bottom: 2vw;
+    }
+    
+    #top-apod-info {
+        height: 25%;
+        width: 100%;
+        grid-template-rows: 1fr 1fr;
+        grid-row: 2;
+        justify-content: center;
+    }
+    
+    #photographer {
+        font-size: 0.6em;
+    }
+    
+    #camera-icon {
+        max-width: 5vw;
+        margin: 1vw 2.8vw 1vw 1vw;
+        float: left;
+    }
+    
+    #info-click h3 {
+        font-size: 0.6em;
+    }
+    
+    #info-icon {
+        max-width: 6vw;
+        margin: 2vw 2vw 0.5vw 0.5vw;
+    }
+
+    #title-text {
+        font-size: 1.8em;
+        grid-row: 1;
+        margin-left: 6vw;
+        margin-right: 6vw;
+    }
+    
+    #sources {
+        position: relative;
+        display: flex;
+        bottom: 1vw;
+        height: 1vw;
+        justify-content: center;
+    }
+
+    #sources h5 {
+        font-size: 1.3vw;
+    }
+}
+
+@media only screen and (max-width: 815px) and (min-width: 600px) {
+
 }
