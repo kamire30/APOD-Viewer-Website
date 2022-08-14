@@ -482,6 +482,7 @@ form {
     #reset-btn {
         height: 110%;
         font-size: 2vw;
+        background-color: white;
     }
 
     /* Top Page */
