@@ -187,8 +187,8 @@ form {
 #title-text {
     color: white;
     font-family: AltaLight;
-    font-weight: bold;
     font-size: 2.5em;
+    letter-spacing: 0.4vw;
 }
 
 #sources h5 {
