@@ -541,6 +541,52 @@ form {
     #sources h5 {
         font-size: 1.3vw;
     }
+
+    /* Middle Page */
+
+    #middle-page {
+        grid-template-columns: 1fr;
+    }
+    
+    #today-data {
+        display: grid;
+        width: 100vw;
+        justify-content: center;
+    }
+
+    #today-img {
+        max-width: 95vw;
+        max-height: 70vw;
+    }
+
+    #today-vid {
+        width: 90vw;
+        height: 70vw;
+    }
+    
+    #yesterday-data, #tmrw-data {
+        position: absolute;
+        opacity: 0;
+    }
+
+    #move-forward, #move-back {
+        width: 23vw;
+        height: 8vw;
+        margin: auto 2vw auto 2vw;
+        font-family: Signal;
+        font-size: 0.5em;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    #date-text {
+        font-size: 1.1em;
+    }
+
+    .calendar-icon {
+        max-width: 6vw;
+        max-height: 6vw;
+    }
 }
 
 @media only screen and (max-width: 815px) and (min-width: 600px) {
