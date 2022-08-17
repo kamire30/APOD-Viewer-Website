@@ -322,6 +322,9 @@ form {
     font-size: 1vw;
     cursor: pointer;
     z-index: 1;
+    background-color: white;
+    border-radius: 3px;
+    border: none;
 }
 
 /* Bottom page */
@@ -572,11 +575,7 @@ form {
     #move-forward, #move-back {
         width: 23vw;
         height: 8vw;
-        margin: auto 2vw auto 2vw;
-        font-family: Signal;
         font-size: 0.5em;
-        cursor: pointer;
-        z-index: 1;
     }
 
     #date-text {
