@@ -32,8 +32,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     overflow-x: hidden;
+    overflow-y: scroll;
     margin: 0;
-    -ms-overflow-style: none;
     scrollbar-width: none; 
 }
 
@@ -327,7 +327,7 @@ form {
     border: none;
 }
 
-/* Bottom page */
+/* Bottom Page */
 
 
 @keyframes fade-in {
@@ -572,6 +572,10 @@ form {
         opacity: 0;
     }
 
+    .middle-inner-div {
+        margin-top: 3vw;
+    }
+
     #move-forward, #move-back {
         width: 23vw;
         height: 8vw;
@@ -586,6 +590,94 @@ form {
         max-width: 6vw;
         max-height: 6vw;
     }
+
+    /* Bottom Page */
+
+
+    /* Positioning Divs */
+    
+
+    #bottom-page {
+        display: grid;
+        padding-top: 5vw;
+        height: fit-content;
+        grid-template-rows: 35% 60%;
+    }
+    
+    #apod-stats-div {
+        width: 90vw;
+        border-radius: 3px;
+        border: solid thin red;
+    }
+
+    #apod-explanation {
+        height: fit-content;
+        width: 90vw;
+        padding: 1vw 1vw 1vw 1vw;
+        border: solid thin green;
+    }
+
+    #black-bar {
+        width: 103vw;
+        height: 30vw;
+        background-color: black;
+        border: solid thin yellow;
+    }
+
+
+    /* */
+    
+
+    #apod-stats-div div {
+        height: 10vw;
+    }
+    
+    .apod-stats {
+        font-size: 0.9em;
+    }
+    
+    .apod-stats-img {
+        position: relative;
+        max-width: 8vw;
+        max-height: 6vw;
+        margin: auto 2vw auto 2vw;
+        float: left;
+    }
+    
+    #apod-explanation h2 {
+        display: block;
+        width: 90vw;
+        text-align: center;
+        font-size: 2em;
+        color: white;
+        font-family: AltaLight;
+        margin: 0 0 1vw 0;
+    }
+    
+    #apod-explanation p {
+        width: 90vw;
+        color: white;
+        text-align: center;
+        font-family: Hattori;
+        font-size: 4vw;
+        margin: 0.5vw 0 0.5vw 0;
+    }
+
+    #black-bar h1 {
+        color: white;
+        font-family: BrooklynSemiBold;
+        letter-spacing: 2.5vw;
+    }
+    
+    #black-bar h6 {
+        position: relative;
+        color: white;
+        font-family: BrooklynSemiBold;
+        letter-spacing: 0.1vw;
+        right: 1vw;
+        margin-top: 0;
+    }
+
 }
 
 @media only screen and (max-width: 815px) and (min-width: 600px) {
