@@ -341,6 +341,7 @@ form {
     width: 100%;
     height: fit-content;
     padding-top: 3vw;
+    align-items: center;
 }
 
 .outer-bottom-div {
@@ -348,9 +349,8 @@ form {
 }
 
 #apod-stats-unique {
-    width: (100% - 1vw);
+    width: 45vw;
     height: 25vw;
-    margin-inline: auto;
     animation: fade-in 1s linear;
     animation-play-state: paused;
     animation-delay: calc(var(--scroll) * -1.3s);
@@ -395,7 +395,6 @@ form {
     height: fit-content;
     bottom: 5vw;
     width: 60vw;
-    margin-inline: auto;
     padding: 1vw 1vw 1vw 1vw;
     border: solid thin white;
     background-image: linear-gradient(rgb(141, 12, 12), rgb(238, 156, 156));
