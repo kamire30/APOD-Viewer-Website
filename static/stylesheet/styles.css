@@ -613,6 +613,7 @@ form {
     #apod-explanation {
         width: 90vw;
         bottom: 0;
+        margin-bottom: 5vw;
     }
 
     #black-bar {
