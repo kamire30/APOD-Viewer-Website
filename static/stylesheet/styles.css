@@ -385,6 +385,10 @@ form {
     float: left;
 }
 
+#link-div {
+    text-decoration: none;
+}
+
 #link-div:hover {
     cursor: pointer;
 }
