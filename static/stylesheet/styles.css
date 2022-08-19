@@ -70,6 +70,7 @@ li a {
 
 li a:visited {
     color: white;
+    text-decoration: none;
 }
 
 li a:hover {
