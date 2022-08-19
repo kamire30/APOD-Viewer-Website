@@ -596,34 +596,29 @@ form {
 
     /* Positioning Divs */
     
-
     #bottom-page {
-        display: grid;
-        padding-top: 5vw;
-        height: fit-content;
-        grid-template-rows: 35% 60%;
+        display: flex;
     }
-    
+
+    #apod-stats-unique {
+        width: 90vw;
+        height: fit-content;
+        margin-bottom: 5vw;
+    }
+
     #apod-stats-div {
         width: 90vw;
-        border-radius: 3px;
-        border: solid thin red;
     }
 
     #apod-explanation {
-        height: fit-content;
         width: 90vw;
-        padding: 1vw 1vw 1vw 1vw;
-        border: solid thin green;
+        bottom: 0;
     }
 
     #black-bar {
-        width: 103vw;
-        height: 30vw;
-        background-color: black;
-        border: solid thin yellow;
+        height: 15vw;
     }
-
+    
 
     /* */
     
