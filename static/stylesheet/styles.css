@@ -133,7 +133,7 @@ form {
 #top-page {
     display: grid;
     grid-template-rows: 20vh;
-    grid-template-columns: 25vw 50vw 25vw;
+    grid-template-columns: 20vw 60vw 20vw;
     margin-bottom: 2vw;
 }
 
