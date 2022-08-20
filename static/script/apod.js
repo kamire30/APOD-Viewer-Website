@@ -19,6 +19,7 @@ $("#click-for-more").click(function() {
 
 /* Functions */
 
+var move_date = 1;
 
 function checkKey(e) {
 
@@ -120,8 +121,6 @@ function search_apod(value) {
 
 
 
-var move_date = 1;
-
 function update_current_day() {
     const today = new Date();
     const year = today.getFullYear();
@@ -146,11 +145,8 @@ function fetch_images(yesterday, today, tomorrow) {
     fetch(`/.netlify/functions/fetch_images?start_date=${yesterday}&today_date=${today}&tomorrow_date=${tomorrow}`)
         .then(res => res.json())
         .then(data => {
-            if (data.length == 1) {
-                move_back()
-            }
 
-            if (move_date == 1) {
+            if (move_date == 1 || move_date == 2) {
                 const img = document.getElementById("tmrw-img");
                 const vid = document.getElementById("tmrw-vid");
             
@@ -159,9 +155,14 @@ function fetch_images(yesterday, today, tomorrow) {
                 vid.style.opacity = 0;
                 vid.style.position = "absolute";
                 document.getElementById("move-forward").disabled = true;
-                document.getElementById("tmrw-img").src = "static/imgs/red-gradient.gif";
+                img.src = "static/imgs/red-gradient.gif";
             } else {
                 document.getElementById("move-forward").disabled = false;
+            }
+
+
+            if (data.length == 1) {
+                move_back()
             }
 
             document.getElementById("title-text").innerHTML = data[1]["title"];
@@ -262,6 +263,7 @@ function fetch_images(yesterday, today, tomorrow) {
             if (data.length == 3) {
                 document.getElementById("tmrw-img").src = data[2]["url"];
             }
+
             })
 }
 
@@ -359,9 +361,6 @@ function move_forward() {
 
 
 /* On Load */
-
-
-document.getElementById("tmrw-img").src = "static/imgs/red-gradient.gif"
 
 const today = new Date();
 const yesterday = new Date();

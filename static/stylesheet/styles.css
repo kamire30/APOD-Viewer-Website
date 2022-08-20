@@ -211,6 +211,22 @@ form {
     margin-bottom: 3vw;
 }
 
+#heart-icon {
+    position: relative;
+    opacity: var(--heart-opacity);
+    right: 4vw;
+    max-width: 3vw;
+    max-height: 2.5vw;
+    padding: 1vw 0.5vw 0.5vw 0.5vw;
+    margin-right: -5vw;
+    z-index: 99;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#heart-icon:hover {
+    cursor: pointer;
+}
+
 .apod-img {
     position: relative;
     border: solid 0.3vw white;
@@ -219,6 +235,7 @@ form {
 }
 
 .middle-page-div {
+    --heart-opacity: 0;
     position: relative;
     transition: bottom 0.5s ease-in-out;
     -webkit-transition: bottom 0.5s ease-in-out;
@@ -227,6 +244,7 @@ form {
 
 .middle-page-div:hover {
     bottom: 2vw;
+    --heart-opacity: 1;
 }
 
 .btn-div button {
@@ -258,6 +276,10 @@ form {
     justify-content: center;
     align-items: center;
     margin-bottom: 2vw;
+}
+
+#today-positioning-div {
+    display: flex;
 }
 
 #today-img {
