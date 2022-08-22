@@ -154,10 +154,13 @@ function fetch_images(yesterday, today, tomorrow) {
                 img.style.position = "static";
                 vid.style.opacity = 0;
                 vid.style.position = "absolute";
-                document.getElementById("move-forward").disabled = true;
                 img.src = "static/imgs/red-gradient.gif";
-            } else {
-                document.getElementById("move-forward").disabled = false;
+
+                if (move_date == 1) {
+                    document.getElementById("move-forward").disabled = true;
+                } else {
+                    document.getElementById("move-forward").disabled = false;
+                }
             }
 
 

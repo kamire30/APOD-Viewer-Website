@@ -24,7 +24,7 @@ function favourite_apod() {
     console.log(localStorage.length);
     console.log(sessionStorage.length);
 
-    if (localStorage.length == 0 && sessionStorage.length == 1) {
+    if ((localStorage.length == 0 && sessionStorage.length == 0) || (localStorage.length == 0 && sessionStorage.length == 1)) {
         location.replace("html/login.html");
     }
 }
