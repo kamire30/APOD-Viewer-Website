@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/static/stylesheet/login.css"/>
         <link rel="icon" type="image/x-icon" href="/static/imgs/favicon.png">
-        <script src="/static/script/apod.js" defer></script>
         <script src="/static/script/login.js" defer></script>
         <title>APODViewer - Login Page</title>
     </head>
@@ -19,24 +18,28 @@
 
         <section id="sign-in">
             <div id="sign-in-desc">
-                <h1>Sign Into APODVIEWER</h1>
+                <h1 id="heading">Sign Into APODVIEWER</h1>
                 <p>Sign in with your email and password to unlock features, such as saving your favourite APODs!</p>
             </div>
                 <div id="sign-in-container">
-                    <form name="login-form" autocomplete="off" method="post" data-netlify="true" netlify-honeypot="bot-field"">
+                    <form onsubmit="return false" autocomplete="off" data-netlify="true" netlify-honeypot="bot-field" id="login-form">
                         <div hidden aria-hidden="true">
                             <label for="bot-field" class="input-lbl">Bot Detection</label>
                             <input type="text" name="bot-field" title="bot-field" id="bot-field" class="input" placeholder="bot-field">
                         </div>
                         <div class="input-div">
                             <label for="email" class="input-lbl">Email:</label>
-                            <input type="text" name="email" title="example@gmail.com" id="email" class="input" placeholder="example@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                            <input required type="text" name="email" title="example@gmail.com" id="email" class="input" placeholder="example@gmail.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$">
                         </div>
                         <div class="input-div">
                             <label for="password" class="input-lbl">Password:</label>
-                            <input type="password" name="password" title="At least 8 characters" id="password" class="input" placeholder="Enter your password" pattern=".{8,}">
+                            <input required type="password" name="password" title="At least 8 characters" id="password" class="input" placeholder="Enter your password" pattern=".{8,}">
                         </div>
-                        <input type="submit" value="Login">
+                        <div class="input-div">
+                            <label for="keep-signed-in">Keep Signed In</label>
+                            <input type="checkbox" name="keep-signed-in" title="Keep Signed In!" id="keep-signed-in">
+                        </div>
+                        <input type="submit" id="submit-button" value="Submit">
                     </form>
                 </div>
             </div>

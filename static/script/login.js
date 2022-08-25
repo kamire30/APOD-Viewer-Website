@@ -1,7 +1,47 @@
+/* Global Vars */
+
+email_entry = document.getElementById("email");
+password_entry = document.getElementById("password");
+
 /* Login & Favourites */
 
-document.getElementById("heart-icon-a").addEventListener("click", function(){favourite_apod()});
+var al = document.getElementById("heart-icon-a");
+if(al){
+  al.addEventListener('click', function(){favourite_apod()});
+}
 
+var el = document.getElementById("submit-button");
+if(el){
+  el.addEventListener('click', function(){handle_submit()});
+}
+
+email_entry.addEventListener('input', (event) => {
+    if (email_entry.checkValidity() == false) {
+        email_entry.style.color = "red";
+        email_entry.style.border = "solid 0.2vw red";
+    } else {
+        email_entry.style.color = "green";
+        email_entry.style.border = "solid 0.2vw green";
+    }
+
+    if (email_entry.value == "") {
+        email_entry.style.border = "solid 0.2vw white";
+    }
+}); 
+
+password_entry.addEventListener('input', (event) => {
+    if (password_entry.checkValidity() == false) {
+        password_entry.style.color = "red";
+        password_entry.style.border = "solid 0.2vw red";
+    } else {
+        password_entry.style.color = "green";
+        password_entry.style.border = "solid 0.2vw green";
+    }
+
+    if (password_entry.value == "") {
+        password_entry.style.border = "solid 0.2vw white";
+    }
+});
 
 /* Plan 
 
@@ -27,4 +67,29 @@ function favourite_apod() {
     if ((localStorage.length == 0 && sessionStorage.length == 0) || (localStorage.length == 0 && sessionStorage.length == 1)) {
         location.replace("html/login.html");
     }
+}
+
+
+
+function handle_submit() {
+    fetch(`/.netlify/functions/handle_form?email=${email_entry.value}&pass=${password_entry.value}`) 
+        .then(res => res.json())
+        .then(data => {
+            // Validity Tests
+            for (let i = 0; i < data["records"].length; i++) {
+                console.log(data["records"][i]["fields"]["email"])
+                if (data["records"][i]["fields"]["email"] == email_entry.value) {
+                    email_entry.style.color = "red";
+                    email_entry.style.borderColor = "red";
+                    return
+                }
+            }
+            // Add new data into table
+            fetch(`/.netlify/functions/create_record?email=${email_entry.value}&pass=${password_entry.value}`)
+                .then(res => res.json())
+                .then(data => {
+                    fetch(`/.netlify/functions/update_record?field_id=${data["id"]}&email=${email_entry.value}&pass=${password_entry.value}`);
+                })
+            
+        })
 }
